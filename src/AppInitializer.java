@@ -1,9 +1,12 @@
-import Dao.StudentDao;
-import Dao.StudentDaoImpl;
-import Entity.Student;
-import dto.StudentDTO;
+import Dao.ProgramDao;
+import Dao.ProgramDaoImpl;
+import Dao.Student_DataDao;
+import Dao.Student_DataDaoImpl;
+import Entity.Student_Data;
+import dto.Student_DataDTO;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 
 public class AppInitializer {
@@ -11,12 +14,7 @@ public class AppInitializer {
         @SuppressWarnings("unused")
         org.jboss.logging.Logger logger = org.jboss.logging.Logger.getLogger("org.hibernate");
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF); //or whatever level you need
-
-        StudentDao studentDao=new StudentDaoImpl();
-        Student std=new Student("S004","Namal","Nuwara","078121345");
-        studentDao.saveNewStudent(std);
-
-        //Code For Save etc
+        //Exe Code
 
     }
 

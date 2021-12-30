@@ -8,5 +8,10 @@ import Entity.Student;
 import java.io.IOException;
 
 public interface StudentDao {
-    public void saveNewStudent(Student S) throws IOException;
+    public boolean saveNewStudent(Student S) throws IOException;
+    public Student readData(String st_id) throws IOException;
+    public boolean deleteData(String st_id) throws IOException;
+    public String getLastId() throws IOException;
+    public String gearateNewID() throws IOException;
+    public boolean isExists(String st_id) throws IOException;
 }

@@ -3,8 +3,10 @@ Author-:dilus
 Date:-28/12/2021
 */
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {

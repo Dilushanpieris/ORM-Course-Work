@@ -2,6 +2,7 @@ package Util;
 
 import Entity.Program;
 import Entity.Student;
+import Entity.Student_Data;
 import dto.StudentDTO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,7 +22,8 @@ public class FactoryConfiguration {
         properties.load(new FileInputStream("src/hibernate.properties"));
         Configuration configuration = new Configuration().addProperties(properties)
                 .addAnnotatedClass(Student.class)
-                .addAnnotatedClass(Program.class);
+                .addAnnotatedClass(Program.class)
+                .addAnnotatedClass(Student_Data.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }
