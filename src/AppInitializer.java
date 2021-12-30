@@ -1,9 +1,13 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 
 public class AppInitializer extends Application {
@@ -17,8 +21,13 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("View/MainLoginForm.fxml"))));
-        primaryStage.setTitle("Stock Management System");
+        URL resource = getClass().getResource("View/MainLoginForm.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Scene scene = new Scene(load);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setScene(scene);
+        scene.setFill(Color.TRANSPARENT);
+        primaryStage.setTitle("SIPSEWANA INSTITUTE");
         primaryStage.show();
 
     }

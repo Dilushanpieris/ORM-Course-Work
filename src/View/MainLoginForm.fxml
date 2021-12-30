@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="601.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainLoginFormController">
+<AnchorPane fx:id="mainViewContext" prefHeight="601.0" prefWidth="831.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainLoginFormController">
    <children>
-      <AnchorPane layoutX="148.0" layoutY="54.0" prefHeight="482.0" prefWidth="655.0" style="-fx-background-color: grey;" />
+      <AnchorPane layoutX="148.0" layoutY="54.0" prefHeight="482.0" prefWidth="655.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextField fx:id="uNameTxt" focusColor="BLACK" labelFloat="true" layoutX="121.0" layoutY="70.0" prefHeight="30.0" prefWidth="505.0" promptText="Username" unFocusColor="BLACK" />
+            <JFXPasswordField fx:id="passTxt" focusColor="BLACK" labelFloat="true" layoutX="121.0" layoutY="131.0" prefHeight="30.0" prefWidth="505.0" promptText="Password" unFocusColor="BLACK" />
+            <JFXButton layoutX="510.0" layoutY="429.0" onAction="#closebtnOnAction" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #95a5a6;" text="Close" textFill="WHITE" />
+            <JFXButton layoutX="121.0" layoutY="251.0" onAction="#loginBtnOnAction" prefHeight="41.0" prefWidth="173.0" style="-fx-background-color: #27ae60;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXCheckBox layoutX="121.0" layoutY="191.0" onAction="#loginAsAdminOnAction" text="Login As Admin" unCheckedColor="BLACK" />
+         </children></AnchorPane>
       <AnchorPane layoutX="37.0" layoutY="14.0" prefHeight="562.0" prefWidth="201.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); -fx-background-radius: 1em;">
          <children>
             <Label layoutX="36.0" layoutY="73.0" prefHeight="32.0" prefWidth="150.0" text="Welcome To  " textFill="WHITE">
