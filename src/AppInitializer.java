@@ -1,21 +1,25 @@
-import Dao.ProgramDao;
-import Dao.ProgramDaoImpl;
-import Dao.Student_DataDao;
-import Dao.Student_DataDaoImpl;
-import Entity.Student_Data;
-import dto.Student_DataDTO;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Level;
 
-public class AppInitializer {
-    public static void main(String[] args) throws IOException {
+public class AppInitializer extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
         @SuppressWarnings("unused")
         org.jboss.logging.Logger logger = org.jboss.logging.Logger.getLogger("org.hibernate");
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF); //or whatever level you need
-        //Exe Code
-
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
     }
 
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("View/MainLoginForm.fxml"))));
+        primaryStage.setTitle("Stock Management System");
+        primaryStage.show();
+
+    }
 }
