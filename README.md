@@ -9,7 +9,7 @@ Password(user):password<br>
 
 **Use Hibernate.Properties File To Configure Database**
 
-#B asic Overview..
+# Basic Overview..
 
 ![](Screenshots/Screenshot%20(43).png)
 <center>Main Login Page</center>
