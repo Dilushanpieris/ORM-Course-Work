@@ -50,11 +50,39 @@ public class ManageCoursesController{
 
     }
 
-    public void selectCourseCmbBoxAction(ActionEvent actionEvent) {
-
+    public void selectCourseCmbBoxAction(ActionEvent actionEvent) throws IOException {
+        String selectedItem = (String) selectCourseIdCmbBox.getSelectionModel().getSelectedItem();
+        Program readData = program.readData(selectedItem);
+        cNameLbl.setText(readData.getP_name());
+        cDurationLbl.setText(readData.getDurarion());
+        cFeeLbl.setText(readData.getFee());
     }
 
-    public void deleteCourseOnAction(ActionEvent actionEvent) {
+    public void deleteCourseOnAction(ActionEvent actionEvent) throws IOException {
+        boolean selected = selectCourseIdCmbBox.getSelectionModel().isEmpty();
+        if(selected==true){
+            new Alert(Alert.AlertType.WARNING,"Please Select ID To Delete").showAndWait();
+            return;
+        }
+        boolean b = program.deleteData((String) selectCourseIdCmbBox.getSelectionModel().getSelectedItem());
+        if(b==true){
+            new Alert(Alert.AlertType.CONFIRMATION,"Successfully_Deleted.").showAndWait();
+            refresh();
+        }
+        else{
+            new Alert(Alert.AlertType.WARNING,"Error In Database.").showAndWait();
+        }
+    }
+
+    public void refresh() throws IOException {
+        ManageCourseContext.getScene().getWindow().hide();
+        Parent load = FXMLLoader.load(getClass().getResource("../View/ManageCourses.fxml"));
+        Scene scene = new Scene(load);
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
     }
 
     public void genNewIdOnAction(ActionEvent actionEvent) throws IOException {
@@ -69,6 +97,7 @@ public class ManageCoursesController{
         }
         if(txtCourseName.getText().isEmpty()&&txtCourseDuration.getText().isEmpty()&&txtCourseFee.getText().isEmpty()){
             new Alert(Alert.AlertType.WARNING,"Please Add Data Before Saving").show();
+            return;
         }
         String courseNameText = txtCourseName.getText();
         String courseDurationText = txtCourseDuration.getText();
@@ -77,14 +106,13 @@ public class ManageCoursesController{
         ProgramDTO programDTO = new ProgramDTO(idTxt, courseNameText, courseDurationText, courseFeeText);
         boolean isSaved = program.saveNewProgram(new Program(programDTO.getP_id(), programDTO.getP_name(), programDTO.getDurarion(), programDTO.getFee()));
         if(isSaved==true){
-            new Alert(Alert.AlertType.CONFIRMATION,"Successfully Saved").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"Successfully Saved").showAndWait();
+            refresh();
         }
         else {
             new Alert(Alert.AlertType.WARNING,"Database Error").show();
         }
-
     }
-
     public void closeWindowOnAction(ActionEvent actionEvent) throws IOException {
         ManageCourseContext.getScene().getWindow().hide();
         Parent load = FXMLLoader.load(getClass().getResource("../View/MainLoginForm.fxml"));
