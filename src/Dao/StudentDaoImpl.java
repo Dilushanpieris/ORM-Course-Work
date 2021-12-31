@@ -11,6 +11,7 @@ import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentDaoImpl implements StudentDao {
 
@@ -66,10 +67,17 @@ public class StudentDaoImpl implements StudentDao {
     public String gearateNewID() throws IOException {
         String lastId=getLastId();
         int lastChar= Integer.parseInt(lastId.substring(lastId.length() - 1));
-        String newId=lastId+"\b";
+        String newId=removeLastCharOptional(lastId);//lastId+"\b";
         lastChar++;
         newId=newId+lastChar;
         return newId;
+    }
+    @Override
+    public  String removeLastCharOptional(String s) {
+        return Optional.ofNullable(s)
+                .filter(str -> str.length() != 0)
+                .map(str -> str.substring(0, str.length() - 1))
+                .orElse(s);
     }
 
     @Override

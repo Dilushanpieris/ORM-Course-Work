@@ -13,5 +13,8 @@ public interface StudentDao {
     public boolean deleteData(String st_id) throws IOException;
     public String getLastId() throws IOException;
     public String gearateNewID() throws IOException;
+
+    String removeLastCharOptional(String s);
+
     public boolean isExists(String st_id) throws IOException;
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="stuDataContext" prefHeight="723.0" prefWidth="1171.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ViewStudentDataController">
+   <children>
+      <AnchorPane layoutX="44.0" layoutY="54.0" prefHeight="608.0" prefWidth="1084.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="TableViewContext" layoutX="22.0" layoutY="52.0" opacity="0.99" prefHeight="511.0" prefWidth="1041.0" style="-fx-background-color: #bdc3c7;">
+              <columns>
+                <TableColumn fx:id="colStid" prefWidth="221.0" text="St_ID" />
+                <TableColumn fx:id="colPid" minWidth="0.0" prefWidth="258.0" text="P_ID" />
+                  <TableColumn fx:id="colRegDate" prefWidth="296.0" text="Registerd_Date" />
+                  <TableColumn fx:id="colPaidAmount" prefWidth="265.0" text="Paid_amount" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="18.0" layoutY="14.0" prefHeight="80.0" prefWidth="1135.0" style="-fx-background-color: linear-gradient(to right, #3494e6, #ec6ead); -fx-background-radius: 1em;">
+         <children>
+            <Label layoutX="32.0" layoutY="21.0" opacity="0.76" text="Student Data Table" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Comic Sans MS" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="18.0" layoutY="629.0" prefHeight="80.0" prefWidth="1135.0" style="-fx-background-color: linear-gradient(to right, #3494e6, #ec6ead); -fx-background-radius: 1em;">
+         <children>
+            <JFXButton layoutX="900.0" layoutY="23.0" onAction="#backToStudentManagement" prefHeight="36.0" prefWidth="211.0" style="-fx-background-color: #7f8c8d;" text="Back To Student Management" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

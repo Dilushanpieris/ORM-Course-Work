@@ -20,7 +20,7 @@
                   <Font name="Lucida Sans Unicode" size="16.0" />
                </font>
             </JFXButton>
-            <JFXCheckBox layoutX="121.0" layoutY="191.0" onAction="#loginAsAdminOnAction" text="Login As Admin" unCheckedColor="BLACK" />
+            <JFXCheckBox fx:id="loginAsAdminChk" layoutX="121.0" layoutY="191.0" text="Login As Admin" unCheckedColor="BLACK" />
          </children></AnchorPane>
       <AnchorPane layoutX="37.0" layoutY="14.0" prefHeight="562.0" prefWidth="201.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); -fx-background-radius: 1em;">
          <children>
