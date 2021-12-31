@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -29,25 +30,37 @@ public class MainLoginFormController {
     }
 
     public void loginBtnOnAction(ActionEvent actionEvent) throws IOException {
-        if(loginAsAdminChk.isSelected()){
-            mainViewContext.getScene().getWindow().hide();
-            Parent load = FXMLLoader.load(getClass().getResource("../View/ManageCourses.fxml"));
-            Scene scene = new Scene(load);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setScene(scene);
-            scene.setFill(Color.TRANSPARENT);
-            stage.show();
+        if(loginAsAdminChk.isSelected()) {
+            if (uNameTxt.getText().equals("admin") && passTxt.getText().equals("password")) {
+                mainViewContext.getScene().getWindow().hide();
+                Parent load = FXMLLoader.load(getClass().getResource("../View/ManageCourses.fxml"));
+                Scene scene = new Scene(load);
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
+                scene.setFill(Color.TRANSPARENT);
+                stage.show();
+            }
+            else {
+                new Alert(Alert.AlertType.WARNING,"Incorrect Username Or Password").show();
+                return;
+            }
         }
         else{
-            mainViewContext.getScene().getWindow().hide();
-            Parent load = FXMLLoader.load(getClass().getResource("../View/ManageStudent.fxml"));
-            Scene scene = new Scene(load);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setScene(scene);
-            scene.setFill(Color.TRANSPARENT);
-            stage.show();
+            if (uNameTxt.getText().equals("user") && passTxt.getText().equals("password")) {
+                mainViewContext.getScene().getWindow().hide();
+                Parent load = FXMLLoader.load(getClass().getResource("../View/ManageStudent.fxml"));
+                Scene scene = new Scene(load);
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
+                scene.setFill(Color.TRANSPARENT);
+                stage.show();
+            }
+            else {
+                new Alert(Alert.AlertType.WARNING,"Incorrect Username Or Password").show();
+                return;
+            }
         }
     }
 
