@@ -1,7 +1,7 @@
-#ORM COURSE WORK
+# ORM COURSE WORK
 
 Application For Student management Using ORM For Sipsewana Institute Of Higer Education
-#Pre-Configure Before RUN.
+# Pre-Configure Before RUN.
 Username(admin):admin<br>
 Password(admin):password<br>
 Username(user):user<br>
@@ -9,7 +9,7 @@ Password(user):password<br>
 
 **Use Hibernate.Properties File To Configure Database**
 
-#Basic Overview..
+#B asic Overview..
 
 ![](Screenshots/Screenshot%20(43).png)
 <center>Main Login Page</center>
