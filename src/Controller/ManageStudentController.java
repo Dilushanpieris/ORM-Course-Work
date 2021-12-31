@@ -66,7 +66,7 @@ public class ManageStudentController {
             new Alert(Alert.AlertType.WARNING,"ID Already Exists").show();
             return;
         }
-        if(txtName.getText().isEmpty()&&txtAddress.getText().isEmpty()&&txtTel.getText().isEmpty()){
+        if(txtName.getText().isEmpty()||txtAddress.getText().isEmpty()||txtTel.getText().isEmpty()){
             new Alert(Alert.AlertType.WARNING,"Please Add Data Before Saving").show();
             return;
         }

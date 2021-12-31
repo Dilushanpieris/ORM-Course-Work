@@ -34,4 +34,15 @@ public class ViewStudentDataController {
         scene.setFill(Color.TRANSPARENT);
         stage.show();
     }
+
+    public void assignCourseOnAction(ActionEvent actionEvent) throws IOException {
+        stuDataContext.getScene().getWindow().hide();
+        Parent load = FXMLLoader.load(getClass().getResource("../View/AssignCourse.fxml"));
+        Scene scene = new Scene(load);
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setScene(scene);
+        scene.setFill(Color.TRANSPARENT);
+        stage.show();
+    }
 }

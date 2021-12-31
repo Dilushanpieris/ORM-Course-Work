@@ -95,7 +95,7 @@ public class ManageCoursesController{
             new Alert(Alert.AlertType.WARNING,"ID Already Exists").show();
             return;
         }
-        if(txtCourseName.getText().isEmpty()&&txtCourseDuration.getText().isEmpty()&&txtCourseFee.getText().isEmpty()){
+        if(txtCourseName.getText().isEmpty()||txtCourseDuration.getText().isEmpty()||txtCourseFee.getText().isEmpty()){
             new Alert(Alert.AlertType.WARNING,"Please Add Data Before Saving").show();
             return;
         }
