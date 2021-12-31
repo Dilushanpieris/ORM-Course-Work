@@ -79,6 +79,10 @@ public class AssignCourseController {
             new Alert(Alert.AlertType.WARNING,"Please Select Data To Assign").show();
             return;
         }
+        if(student_data.isExists((String) cmbStudent.getSelectionModel().getSelectedItem(),(String) cmbCourseId.getSelectionModel().getSelectedItem())){
+            new Alert(Alert.AlertType.WARNING,"Student Already Added...").show();
+            return;
+        }
         //code
         Student_DataDTO dataDTO = new Student_DataDTO((String) cmbStudent.getSelectionModel().getSelectedItem(), (String) cmbCourseId.getSelectionModel().getSelectedItem(), DateNow(), txtPaidAmount.getText());
         boolean b = student_data.saveNewData(new Student_Data(dataDTO.getSt_id(), dataDTO.getP_id(), dataDTO.getReg_date(), dataDTO.getPaid_amount()));
@@ -99,6 +103,11 @@ public class AssignCourseController {
     public void resignFromCourseOnAction(ActionEvent actionEvent) throws IOException {
         if(cmbCourseId.getSelectionModel().isEmpty()||cmbStudent.getSelectionModel().isEmpty()){
             new Alert(Alert.AlertType.WARNING,"Please Select Data To Assign").show();
+            return;
+        }
+        boolean exists = student_data.isExists((String) cmbStudent.getSelectionModel().getSelectedItem(),(String) cmbCourseId.getSelectionModel().getSelectedItem());
+        if(exists==false){
+            new Alert(Alert.AlertType.CONFIRMATION,"Student Already Resigned...").show();
             return;
         }
         //code
